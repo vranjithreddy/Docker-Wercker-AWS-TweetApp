@@ -22,9 +22,7 @@
          username: werckerbot
          channel: notifications
  push-2-docker:
-   box:
-     id: nginx:latest
-     cmd: /bin/sh
+   box: nginx:latest
    
    steps:
      - script:
