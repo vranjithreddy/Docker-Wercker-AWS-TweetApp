@@ -14,7 +14,7 @@
          name: echo tests information
          code: |
            echo "Will do the tests later"
-           echo "May be even later"
+           echo "Lints can also be performed"
 # note the indentation, this is still part of the build pipeline
    after-steps:                    
      - slack-notifier:
