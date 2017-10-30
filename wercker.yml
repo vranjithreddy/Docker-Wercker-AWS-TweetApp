@@ -1,7 +1,7 @@
 # This references the default nodejs container from
 # the Docker Hub: https://registry.hub.docker.com/_/node/
  
- box: node
+ box: nginx:latest
  
  build:
    # The steps that will be executed on build
@@ -25,3 +25,32 @@
          url: $SLACK_URL
          username: werckerbot
          channel: notifications
+ push-2-docker:
+   box:
+     id: nginx:latest
+     cmd: /bin/sh
+   
+   steps:
+     - script:
+         name: get latest tag for deployment and clean image
+         # make release tag
+         # make internals and kubernetes avail for next step
+         code: |
+           cd $WERCKER_SOURCE_DIR
+           cp -r . "$WERCKER_OUTPUT_DIR"
+           mkdir /backend-people
+           mv /pipeline/source/* /backend-people
+           rm -r $WERCKER_SOURCE_DIR
+           rm -r $WERCKER_CACHE_DIR
+     - internal/docker-push:
+         username: $QUAY_USERNAME
+         password: $QUAY_PASSWORD
+         # we want to push both the release image and as the latest
+         tag: dev-$WERCKER_GIT_COMMIT dev-latest
+         repository: quay.io/workrails/backend-people
+         registry: https://quay.io
+         ports: 4200
+         working-dir: /backend-people
+         cmd: node server.js
+
+ 
