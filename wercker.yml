@@ -12,7 +12,7 @@
      # A custom script step, name value is used in the UI
      # and the code value contains the command that get executed
      - script:
-         name: echo nodejs information
+         name: echo tests information
          code: |
            echo "Will do the tests later"
            echo "May be even later"
