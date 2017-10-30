@@ -37,19 +37,18 @@
          # make internals and kubernetes avail for next step
          code: |
            cd $WERCKER_SOURCE_DIR
-           cp -r . "$WERCKER_OUTPUT_DIR"
-           mkdir /backend-people
-           mv /pipeline/source/* /backend-people
+           mv /pipeline/source/index.html /usr/share/nginx/html
+           mv /pipeline/source/linux.png /usr/share/nginx/html
            rm -r $WERCKER_SOURCE_DIR
            rm -r $WERCKER_CACHE_DIR
      - internal/docker-push:
-         username: $QUAY_USERNAME
-         password: $QUAY_PASSWORD
+         username: $DOCKER_USERNAME
+         password: $DOCKER_PASSWORD
          # we want to push both the release image and as the latest
          tag: dev-$WERCKER_GIT_COMMIT dev-latest
-         repository: quay.io/workrails/backend-people
-         registry: https://quay.io
-         ports: 4200
+         repository: devopscafe/tweet-app
+         registry: https://registry.hub.docker.com
+         ports: 80 443
          working-dir: /backend-people
          cmd: node server.js
 
