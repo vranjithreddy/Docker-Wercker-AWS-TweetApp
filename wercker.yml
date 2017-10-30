@@ -8,17 +8,14 @@
    # Steps make up the actions in your pipeline
    
    steps:
-     # A step that executes `npm install` command and tests it.
-     - npm-install
 
- 
      # A custom script step, name value is used in the UI
      # and the code value contains the command that get executed
      - script:
          name: echo nodejs information
          code: |
-           echo "node version $(node -v) running"
-           echo "npm version $(npm -v) running"
+           echo "Will do the tests later"
+           echo "May be even later"
 # note the indentation, this is still part of the build pipeline
    after-steps:                    
      - slack-notifier:
@@ -32,7 +29,7 @@
    
    steps:
      - script:
-         name: get latest tag for deployment and clean image
+         name: mv the files required and clean image
          # make release tag
          # make internals and kubernetes avail for next step
          code: |
@@ -49,7 +46,6 @@
          repository: devopscafe/tweet-app
          registry: https://registry.hub.docker.com
          ports: 80 443
-         working-dir: /backend-people
-         cmd: node server.js
+         cmd: nginx -g daemon off
 
  
