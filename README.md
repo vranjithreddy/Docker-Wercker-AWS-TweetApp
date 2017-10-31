@@ -45,3 +45,14 @@ Click on the + icon on top right corner to see an option named create an applica
 
 ![Alt text](https://s3.us-east-2.amazonaws.com/devopscafe/workflows.JPG "Create")
 
+5. Environment Variables.
+
+![Alt text](https://s3.us-east-2.amazonaws.com/devopscafe/environment.JPG "Create")
+
+
+#THE MAGIC SAUCE:
+
+Most of the work happens becuase of the declarations in the wercker.yml. We can include multiple pipelines like build, test, push to dockerhub and deploy to each environments inside of the wercker.yml file.
+
+
+
