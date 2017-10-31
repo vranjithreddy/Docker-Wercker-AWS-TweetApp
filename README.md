@@ -56,7 +56,7 @@ Most of the work happens becuase of the declarations in the wercker.yml. We can 
 
 The build section contains basic install test as of now. You could add in more tests as per the need. 
 The build section also contains the slack integration, which will post notifications to your slack channel. 
-You will have to  <a href="https://www.docker.com/sites/default/files/Docker_CheatSheet_08.09.2016_0.pdf">configure incoming webhook on slack</a>
+You will have to  <a href="https://www.docker.com/sites/default/files/Docker_CheatSheet_08.09.2016_0.pdf">configure incoming webhook on slack.</a>
 
 The push to docker contains the syntax declarations on how we push the container to Dockerhub.
 The deploy section contains commands to show how we deploy the docker image. 
