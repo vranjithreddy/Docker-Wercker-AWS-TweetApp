@@ -47,8 +47,8 @@
          ports: 80 443
          cmd: nginx -g 'daemon off';
  deploy-dev:
+   box: node:boron
    
-
    steps:
      - wercker/add-ssh-key:
          keyname: RAVI_DOCKER_AWS_PUBLIC
