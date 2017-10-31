@@ -8,7 +8,7 @@
    
    steps:
 
-     # A custom script step, name value is used in the UI
+     # A  custom script step, name value is used in the UI
      # and the code value contains the command that get executed
      - script:
          name: installing and testing install of curl
