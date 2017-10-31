@@ -4,18 +4,18 @@ Tweet app revisited to build, test, deploy using an automated CI-CD pipeline wit
 
 
 
-Introduction
+Introduction:
 
 This post is to help you set up a CI-CD pipeline using wercker for the application running on docker container. Same can be used to scale out or for bigger applications as well. It would serve as a initial starting point to set up pipeline and workflows on wercker. 
 This would also help you with Slack integration step to post notifications on your build status. 
 
-Documentations
+Documentations:
 
 <a href="http://devcenter.wercker.com/docs/home">Learn about wercker</a>
 
 <a href="https://www.docker.com/sites/default/files/Docker_CheatSheet_08.09.2016_0.pdf">Docker Commands/Cheat Sheet</a>
 
-Pre-requisites 
+Pre-requisites: 
 
 Dockerhub Account to store your docker images - <a href="https://hub.docker.com/">create your free docker hub account</a>
 
@@ -23,7 +23,7 @@ Wercker Account for your CI-CD pipeline - <a href="http://www.wercker.com/pricin
 
 A running EC2 Instance. ( Note: <a href="https://docs.docker.com/engine/installation/#prior-releases">Install docker on the EC2 Server</a> )
 
-Application
+Application:
 
 <a href="https://github.com/dockersamples/linux_tweet_app">Source Code of the Application's HTML file</a>
 
@@ -53,6 +53,21 @@ Click on the + icon on top right corner to see an option named create an applica
 #THE MAGIC SAUCE:
 
 Most of the work happens becuase of the declarations in the wercker.yml. We can include multiple pipelines like build, test, push to dockerhub and deploy to each environments inside of the wercker.yml file.
+
+The build section contains basic install test as of now. You could add in more tests as per the need. 
+The build section also contains the slack integration, which will post notifications to your slack channel. 
+You will have to  <a href="https://www.docker.com/sites/default/files/Docker_CheatSheet_08.09.2016_0.pdf">configure incoming webhook on slack</a>
+
+The push to docker contains the syntax declarations on how we push the container to Dockerhub.
+The deploy section contains commands to show how we deploy the docker image. 
+
+
+To Do's in future:
+
+1. Add in ELK stack containers on the same host to monitor the application. ( A learning on how it would work )
+2. Deploying through Docker Compose. 
+3. Deploying through Kubernetes. 
+4. Add test cases and scripts in the build section and post deploy section. 
 
 
 
