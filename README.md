@@ -35,8 +35,13 @@ On the profile page, open up setting and git connections underneath settings. Yo
 2. Creating the application. 
 Click on the + icon on top right corner to see an option named create an application. Once you click on it, it will auto populate the repositories in the git hub account you had linked earlier. Choose the code repository that you would like to configure the CI pipeline. Configure the access and your application will be created. you are all done!
 
-3. Create the workflows and pipelines. 
+3. Create the pipelines. 
 
-Pipelines would be underneath workflows.
+![Alt text](https://s3.us-east-2.amazonaws.com/devopscafe/pipelineJPG.JPG "Create")
 
-![Alt text](https://s3.us-east-2.amazonaws.com/devopscafe/pipelineJPG.JPG "Optional title")
+![Alt text](https://s3.us-east-2.amazonaws.com/devopscafe/settings-for-pipeline.JPG "Settings")
+
+4. Create the workflows. 
+
+![Alt text](https://s3.us-east-2.amazonaws.com/devopscafe/workflows.JPG "Create")
+
