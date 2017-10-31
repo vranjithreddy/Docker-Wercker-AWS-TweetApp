@@ -47,10 +47,10 @@
          ports: 80 443
          cmd: nginx -g 'daemon off';
  deploy-dev:
-   box: node:latest
+   box: nginx:latest
    steps:
      - wercker/add-ssh-key:
-         keyname: RAVI_DOCKER_AWS_PUBLIC
+         keyname: RAVI_DOCKER_AWS
      - add-to-known_hosts:
          hostname: 18.216.94.70
      - script:
