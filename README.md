@@ -19,7 +19,7 @@ Dockerhub Account to store your docker images - <a href="https://hub.docker.com/
 
 Wercker Account for your CI-CD pipeline - <a href="http://www.wercker.com/pricing">create your free wercker account</a>
 
-A running EC2 Instance. ( Note: <a href="https://docs.docker.com/engine/installation/#prior-releases">Install docker on the EC2 Server</a>
+A running EC2 Instance. ( Note: <a href="https://docs.docker.com/engine/installation/#prior-releases">Install docker on the EC2 Server</a> )
 
 Application
 
