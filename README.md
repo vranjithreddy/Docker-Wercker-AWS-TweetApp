@@ -33,3 +33,10 @@ Wercker:
 On the profile page, open up setting and git connections underneath settings. You would have option to either connect to your github account or bitbucket account.
 
 2. Creating the application. 
+Click on the + icon on top right corner to see an option named create an application. Once you click on it, it will auto populate the repositories in the git hub account you had linked earlier. Choose the code repository that you would like to configure the CI pipeline. Configure the access and your application will be created. you are all done!
+
+3. Create the workflows and pipelines. 
+
+Pipelines would be underneath workflows.
+
+![Alt text](https://s3.us-east-2.amazonaws.com/devopscafe/pipelineJPG.JPG "Optional title")
