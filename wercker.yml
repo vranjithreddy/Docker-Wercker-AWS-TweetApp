@@ -11,10 +11,10 @@
      # A custom script step, name value is used in the UI
      # and the code value contains the command that get executed
      - script:
-         name: echo tests information
+         name: installing and testing install of curl
          code: |
-           echo "Will do the tests later"
-           echo "Lints can also be performed"
+           apt-get update
+           apt-get install -y curl
 # note the indentation, this is still part of the build pipeline
    after-steps:                    
      - slack-notifier:
@@ -33,6 +33,8 @@
            cd $WERCKER_SOURCE_DIR
            mv /pipeline/source/index.html /usr/share/nginx/html
            mv /pipeline/source/linux.png /usr/share/nginx/html
+           apt-get update
+           apt-get install -y curl
            rm -r $WERCKER_SOURCE_DIR
            rm -r $WERCKER_CACHE_DIR
      - internal/docker-push:
