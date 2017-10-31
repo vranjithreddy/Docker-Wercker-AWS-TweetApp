@@ -51,7 +51,7 @@
    
    steps:
      - wercker/add-ssh-key:
-         keyname: RAVI_DOCKER_AWS_PUBLIC
+         keyname: RAVI_DOCKER_AWS_PRIVATE
      - add-to-known_hosts:
          hostname: $DEV_REMOTE_HOST
      - script:
