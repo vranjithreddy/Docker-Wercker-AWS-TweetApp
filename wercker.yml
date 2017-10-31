@@ -39,10 +39,10 @@
          username: $DOCKER_USERNAME
          password: $DOCKER_PASSWORD
          # we want to push both the release image and as the latest
-         tag: dev-$WERCKER_GIT_COMMIT dev-latest
+         tag: dev-$WERCKER_GIT_COMMIT latest
          repository: devopscafe/tweet-app
          registry: https://registry.hub.docker.com
          ports: 80 443
-         cmd: nginx -g daemon off
+         cmd: nginx
 
  
