@@ -7,12 +7,13 @@ Tweet app revisited to build, test, deploy using an automated CI-CD pipeline wit
 Introduction
 
 This post is to help you set up a CI-CD pipeline using wercker for the application running on docker container. Same can be used to scale out or for bigger applications as well. It would serve as a initial starting point to set up pipeline and workflows on wercker. 
+This would also help you with Slack integration step to post notifications on your build status. 
 
 Documentations
 
 <a href="http://devcenter.wercker.com/docs/home">Learn about wercker</a>
 
-<a href="https://www.docker.com/sites/default/files/Docker_CheatSheet_08.09.2016_0.pdf">Docker Commands/Cheat Sheetr</a>
+<a href="https://www.docker.com/sites/default/files/Docker_CheatSheet_08.09.2016_0.pdf">Docker Commands/Cheat Sheet</a>
 
 Pre-requisites 
 
@@ -26,3 +27,9 @@ Application
 
 <a href="https://github.com/dockersamples/linux_tweet_app">Source Code of the Application's HTML file</a>
 
+Wercker:
+
+1. Integrating werkcer with git. 
+On the profile page, open up setting and git connections underneath settings. You would have option to either connect to your github account or bitbucket account.
+
+2. Creating the application. 
