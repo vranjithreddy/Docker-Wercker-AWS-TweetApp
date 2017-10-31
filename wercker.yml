@@ -49,7 +49,7 @@
  deploy-dev:
    steps:
      - wercker/add-ssh-key:
-         keyname: RAVI_DOCKER_AWS
+         keyname: RAVI_DOCKER_AWS_PUBLIC
      - add-to-known_hosts:
          hostname: 18.216.94.70
      - script:
