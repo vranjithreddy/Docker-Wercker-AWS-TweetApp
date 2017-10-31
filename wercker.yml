@@ -55,21 +55,27 @@
          hostname: 18.216.94.70
      - script:
          name: Pull newest docker images
-         code: ssh ec2-user@18.216.94.70 docker pull devopscafe/tweet-app
+         code: |
+           ssh ec2-user@18.216.94.70 docker pull devopscafe/tweet-app
      - script:
          name: Stop all running containers
-         code: ssh ec2-user@18.216.94.70 docker stop ravi-linux || echo ‘failed to stop running container’
+         code: |
+           ssh ec2-user@18.216.94.70 docker stop ravi-linux || echo ‘failed to stop running container’
      - script:
          name: Remove stopped service/containers
-         code: ssh ec2-user@18.216.94.70 docker rm ravi-linux || echo ‘failed to remove stopped container’
+         code: |
+           ssh ec2-user@18.216.94.70 docker rm ravi-linux || echo ‘failed to remove stopped container’
      - script:
          name: Remove image behind stopped container
-         code: ssh ec2-user@18.216.94.70 docker rmi devopscafe/tweet-app:current || echo ‘failed to remove image behind stopped container’
+         code: |
+           ssh ec2-user@18.216.94.70 docker rmi devopscafe/tweet-app:current || echo ‘failed to remove image behind stopped container’
      - script:
          name: Tag the pulled image
-         code: ssh ec2-user@18.216.94.70 docker tag devopscafe/tweet-app:latest devopscafe/tweet-app:current
+         code: |
+           ssh ec2-user@18.216.94.70 docker tag devopscafe/tweet-app:latest devopscafe/tweet-app:current
      - script:
          name: Start all services/containers
-         code: ssh ec2-user@18.216.94.70 docker container run --detach -p 80:80 --name ravi-linux devopscafe/tweet-app:current
+         code: |
+           ssh ec2-user@18.216.94.70 docker container run --detach -p 80:80 --name ravi-linux devopscafe/tweet-app:current
 
  
