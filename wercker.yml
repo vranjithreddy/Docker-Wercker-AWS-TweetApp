@@ -46,7 +46,7 @@
          ports: 80 443
          cmd: nginx -g 'daemon off';
  deploy-dev:
-   box: node:latest
+  
    steps:
      - wercker/add-ssh-key:
          keyname: RAVI_DOCKER_AWS
@@ -55,7 +55,7 @@
      - script:
          name: Pull newest docker images
          code: |
-           ssh $DEV_REMOTE_USER@18.216.94.70 docker pull devopscafe/tweet-app
+           ssh $DEV_REMOTE_USER@18.216.94.70 sudo docker pull devopscafe/tweet-app
      - script:
          name: Stop all running containers
          code: |
