@@ -46,5 +46,31 @@
          registry: https://registry.hub.docker.com
          ports: 80 443
          cmd: nginx -g 'daemon off';
+deploy-dev:
+  box: node
+
+  steps:
+    - wercker/add-ssh-key:
+        keyname: RAVI_DOCKER_AWS
+    - add-to-known_hosts:
+        hostname: $DEV_REMOTE_HOST
+    - script:
+        name: Pull newest docker images
+        code: ssh $DEV_REMOTE_USER@$DEV_REMOTE_HOST "docker pull devopscafe/tweet-app"
+    - script:
+        name: Stop all running containers
+        code: ssh $DEV_REMOTE_USER@$$DEV_REMOTE_HOST "docker stop ravi-linux || echo ‘failed to stop running container’"
+    - script:
+        name: Remove stopped service/containers
+        code: ssh $DEV_REMOTE_USER@$$DEV_REMOTE_HOST "docker rm ravi-linux || echo ‘failed to remove stopped container’"
+    - script:
+        name: Remove image behind stopped container
+        code: ssh $DEV_REMOTE_USER@$DEV_REMOTE_HOST "docker rmi devopscafe/tweet-app:current || echo ‘failed to remove image behind stopped container’"
+    - script:
+        name: Tag the pulled image
+        code: ssh $DEV_REMOTE_USER@$DEV_REMOTE_HOST "docker tag devopscafe/tweet-app:latest devopscafe/tweet-app:current"
+    - script:
+        name: Start all services/containers
+        code: ssh $DEV_REMOTE_USER@$DEV_REMOTE_HOST "docker container run --detach -p 80:80 --name ravi-linux devopscafe/tweet-app:current"
 
  
