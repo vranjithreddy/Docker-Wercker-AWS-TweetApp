@@ -35,8 +35,7 @@
            mv /pipeline/source/linux.png /usr/share/nginx/html
            apt-get update
            apt-get install -y curl
-           rm -r $WERCKER_SOURCE_DIR
-           rm -r $WERCKER_CACHE_DIR
+
      - internal/docker-push:
          username: $DOCKER_USERNAME
          password: $DOCKER_PASSWORD
@@ -50,7 +49,7 @@
    box: node:latest
    steps:
      - wercker/add-ssh-key:
-         keyname: RAVI_DOCKER_AWS
+         keyname: RAVI_DOCKER_AWS_PRIVATE
      - add-to-known_hosts:
          hostname: 18.216.94.70
      - script:
