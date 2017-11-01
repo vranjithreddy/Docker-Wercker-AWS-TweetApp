@@ -26,6 +26,7 @@ Wercker Account for your CI-CD pipeline - <a href="http://www.wercker.com/pricin
 
 A running EC2 Instance. ( Note: <a href="https://docs.docker.com/engine/installation/#prior-releases">Install docker on the EC2 Server</a> )
 
+
 Application:
 
 <a href="https://github.com/dockersamples/linux_tweet_app">Source Code of the Application's HTML file</a>
