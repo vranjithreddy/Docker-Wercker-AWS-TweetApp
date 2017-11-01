@@ -10,6 +10,8 @@ This post is to help you set up a CI-CD pipeline using wercker for the applicati
 
 This would also help you with Slack integration step to post notifications on your build status. 
 
+![Alt text](https://s3.us-east-2.amazonaws.com/devopscafe/arch-dia.jpg "App")
+
 Documentations:
 
 <a href="http://devcenter.wercker.com/docs/home">Learn about wercker</a>
