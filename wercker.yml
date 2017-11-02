@@ -3,7 +3,7 @@
  box: nginx:latest
  
  build:
-   # The steps that will be executed on build
+   # The steps that will be executed on  build
    # Steps make up the actions in your pipeline
    
    steps:
