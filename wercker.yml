@@ -46,35 +46,50 @@
          ports: 80 443
          cmd: nginx -g 'daemon off';
  deploy-dev:
-   box: node:latest
-   steps:
-     - wercker/add-ssh-key:
-         keyname: RAVI_DOCKER_AWS
-     - add-to-known_hosts:
-         hostname: $DEV_REMOTE_HOST
-     - script:
-         name: Pull newest docker images
-         code: |
-           ssh $DEV_REMOTE_USER@$DEV_REMOTE_HOST sudo docker pull devopscafe/tweet-app
-     - script:
-         name: Stop all running containers
-         code: |
-           ssh $DEV_REMOTE_USER@$DEV_REMOTE_HOST sudo docker stop ravi-linux || echo ‘failed to stop running container’
-     - script:
-         name: Remove stopped service/containers
-         code: |
-           ssh $DEV_REMOTE_USER@$DEV_REMOTE_HOST sudo docker rm ravi-linux || echo ‘failed to remove stopped container’
-     - script:
-         name: Remove image behind stopped container
-         code: |
-           ssh $DEV_REMOTE_USER@$DEV_REMOTE_HOST sudo docker rmi devopscafe/tweet-app:current || echo ‘failed to remove image behind stopped container’
-     - script:
-         name: Tag the pulled image
-         code: |
-           ssh $DEV_REMOTE_USER@$DEV_REMOTE_HOST sudo docker tag devopscafe/tweet-app:latest devopscafe/tweet-app:current
-     - script:
-         name: Start all services/containers
-         code: |
-           ssh $DEV_REMOTE_USER@$DEV_REMOTE_HOST sudo docker container run --detach -p 80:80 --name ravi-linux devopscafe/tweet-app:current
+   box: google/golang
 
+   steps:
+     - script:
+         name: get latest tag for deployment
+         code: |
+           export RELEASE_TAG=`tail $WERCKER_ROOT/generated_tag.txt`
+           echo "Release tag: $RELEASE_TAG"
+     - script:
+         name: debug
+         code: |
+           echo $WERCKER_OUTPUT_DIR
+           ls -l $WERCKER_OUTPUT_DIR
+           echo $WERCKER_ROOT
+           ls -l $WERCKER_ROOT
+     - bash-template:
+         cwd: $WERCKER_ROOT/kubernetes/deployment/dev
+     - script:
+         name: Remove template files
+         cwd: $WERCKER_ROOT/kubernetes/deployment/dev
+         code: |
+           rm *.template.yml
+     - script:
+         name: debug
+         cwd: $WERCKER_ROOT/kubernetes/deployment/dev
+         code: |
+           ls -l
+     - script:
+         name: echo tags
+         code: |
+           cat $WERCKER_ROOT/kubernetes/deployment/dev/deployment.yml
+           echo "Docker image and tag: $RELEASE_TAG"
+     - kubectl:
+         debug: true
+         server: $KUBERNETES_MASTER
+         username: $KUBERNETES_USERNAME
+         password: $KUBERNETES_PASSWORD
+         insecure-skip-tls-verify: true
+         command: apply
+         raw_args:  -f $WERCKER_ROOT/kubernetes/deployment/prod/deployment.yml --namespace $KUBERNETES_NAMESPACE
+   after-steps:
+     - slack-notifier:
+         url: $SLACK_URL
+         channel: notifications
+         username: werckerbot
+        
  
