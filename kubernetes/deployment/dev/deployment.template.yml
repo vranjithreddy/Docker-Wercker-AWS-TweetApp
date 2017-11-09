@@ -14,7 +14,7 @@ spec:
     spec:
       terminationGracePeriodSeconds: 60
       containers:
-      - image: hub.docker.com/devopscafe/tweet-app:dev-$WERCKER_GIT_COMMIT
+      - image: hub.docker.com/devopscafe/tweet-app:latest
         name: tweet-app
         imagePullPolicy: Always
         ports:
