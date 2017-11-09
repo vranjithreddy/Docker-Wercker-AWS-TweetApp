@@ -1,0 +1,28 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  name: tweet-app
+spec:
+  replicas: 2
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: ravi
+        tier: tweet-app
+    spec:
+      terminationGracePeriodSeconds: 60
+      containers:
+      - image: hub.docker.com/devopscafe/tweet-app:dev-$WERCKER_GIT_COMMIT
+        name: tweet-app
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 99
+          protocol: TCP
+        env:
+        - name: NODE_ENV
+          value: dev
+
+        resources: {}
+      restartPolicy: Always
