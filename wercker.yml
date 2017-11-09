@@ -85,7 +85,7 @@
          password: $KUBERNETES_PASSWORD
          insecure-skip-tls-verify: true
          command: apply
-         raw_args:  -f $WERCKER_ROOT/kubernetes/deployment/prod/deployment.yml --namespace $KUBERNETES_NAMESPACE
+         raw_args:  -f $WERCKER_ROOT/kubernetes/deployment/dev/deployment.yml --namespace $KUBERNETES_NAMESPACE
    after-steps:
      - slack-notifier:
          url: $SLACK_URL
