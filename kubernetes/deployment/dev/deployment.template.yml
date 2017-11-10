@@ -15,7 +15,7 @@ spec:
       containers:
       - image: registry.hub.docker.com/devopscafe/tweet-app
         name: tweet-app
-        imagePullPolicy: Always
+
         ports:
         - containerPort: 99
           protocol: TCP
