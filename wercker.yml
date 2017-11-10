@@ -44,6 +44,7 @@
          tag: dev-$WERCKER_GIT_COMMIT latest
          repository: devopscafe/tweet-app
          registry: https://registry.hub.docker.com
+         working-dir: /
          ports: 80 4000
          cmd: nginx -g 'daemon off';
  deploy-dev:
