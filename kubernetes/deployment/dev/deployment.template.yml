@@ -23,7 +23,6 @@ spec:
         - name: NODE_ENV
           value: dev
 
-
         resources: 
           requests:
             cpu:50m
