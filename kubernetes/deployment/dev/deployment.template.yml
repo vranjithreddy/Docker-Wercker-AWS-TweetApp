@@ -14,7 +14,7 @@ spec:
     spec:
       terminationGracePeriodSeconds: 60
       containers:
-      - image: registry.hub.docker.com/devopscafe/tweet-app:latest
+      - image: registry.hub.docker.com/devopscafe/tweet-app
         name: tweet-app
         imagePullPolicy: Always
         ports:
@@ -26,5 +26,5 @@ spec:
 
         resources: 
           requests:
-            cpu:45m
+            cpu:50m
       restartPolicy: $POLICY
