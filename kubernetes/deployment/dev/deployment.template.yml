@@ -26,5 +26,5 @@ spec:
 
         resources: 
           requests:
-            cpu: 50m
+            cpu:45m
       restartPolicy: $POLICY
