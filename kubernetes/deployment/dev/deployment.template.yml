@@ -14,7 +14,7 @@ spec:
     spec:
       terminationGracePeriodSeconds: 60
       containers:
-      - image: hub.docker.com/devopscafe/tweet-app:dev-67bf09bb6210a42e15f10cc6963aa3ba6117ca5b
+      - image: hub.docker.com/devopscafe/tweet-app
         name: tweet-app
         imagePullPolicy: Always
         ports:
