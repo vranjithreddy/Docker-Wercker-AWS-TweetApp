@@ -27,5 +27,5 @@ spec:
 
         resources: 
           requests:
-            cpu: 70m
+            cpu: 100m
       restartPolicy: Always
