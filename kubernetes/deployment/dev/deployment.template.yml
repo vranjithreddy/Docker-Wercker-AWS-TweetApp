@@ -12,10 +12,11 @@ spec:
         app: ravi
         tier: tweet-app
     spec:
+      terminationGracePeriodSeconds: 60
       containers:
       - image: registry.hub.docker.com/devopscafe/tweet-app
         name: tweet-app
-
+        imagePullPolicy: Always
         ports:
         - containerPort: 99
           protocol: TCP
