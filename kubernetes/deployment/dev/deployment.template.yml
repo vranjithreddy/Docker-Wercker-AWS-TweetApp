@@ -27,4 +27,4 @@ spec:
         resources: 
           requests:
             cpu: 50m
-      restartPolicy: Always
+      restartPolicy: $POLICY
