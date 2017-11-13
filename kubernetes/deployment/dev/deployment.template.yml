@@ -20,7 +20,7 @@ spec:
         name: tweet-app
         imagePullPolicy: Always
         ports:
-        - containerPort: 99
+        - containerPort: 80
           protocol: TCP
         env:
         - name: NODE_ENV
