@@ -13,7 +13,7 @@ spec:
         tier: tweet-app
     spec:
       terminationGracePeriodSeconds: 60
-      hostNetwork: true
+
       containers:
       - image: registry.hub.docker.com/devopscafe/tweet-app:dev-$WERCKER_GIT_COMMIT
 
