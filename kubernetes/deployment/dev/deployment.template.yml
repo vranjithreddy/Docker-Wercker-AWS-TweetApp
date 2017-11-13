@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   name: tweet-app
+  namespace: devopscafe
 spec:
   replicas: 2
   template:
